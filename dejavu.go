@@ -4,3 +4,5 @@
 
 // Package dejavu holds TTF data of the DejaVu fonts.
 package dejavu // import "github.com/go-fonts/dejavu"
+
+//go:generate go run ./gen-fonts.go

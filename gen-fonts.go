@@ -31,7 +31,11 @@ func main() {
 	log.SetFlags(0)
 
 	var (
-		src = flag.String("src", "http://sourceforge.net/projects/dejavu/files/dejavu/2.37/dejavu-fonts-ttf-2.37.zip", "remote ZIP file holding OTF files for DejaVu fonts")
+		src = flag.String(
+			"src",
+			"https://github.com/dejavu-fonts/dejavu-fonts/releases/download/version_2_37/dejavu-fonts-ttf-2.37.zip",
+			"remote ZIP file holding OTF files for DejaVu fonts",
+		)
 	)
 
 	flag.Parse()
@@ -137,15 +141,10 @@ func do(ttfName string, src []byte) error {
 	fmt.Fprintf(b, "// Package %s provides the %q TrueType font\n", pkgName, fontName)
 	fmt.Fprintf(b, "// from the DejaVu font family.\n")
 	fmt.Fprintf(b, "package %[1]s // import \"github.com/go-fonts/dejavu/%[1]s\"\n\n", pkgName)
+	fmt.Fprintf(b, "import _ \"embed\"\n")
 	fmt.Fprintf(b, "// TTF is the data for the %q TrueType font.\n", fontName)
-	fmt.Fprintf(b, "var TTF = []byte{")
-	for i, x := range src {
-		if i&15 == 0 {
-			b.WriteByte('\n')
-		}
-		fmt.Fprintf(b, "%#02x,", x)
-	}
-	fmt.Fprintf(b, "\n}\n")
+	fmt.Fprintf(b, "//\n//go:embed %s\n", ttfName)
+	fmt.Fprintf(b, "var TTF  []byte\n")
 
 	dst, err := format.Source(b.Bytes())
 	if err != nil {
