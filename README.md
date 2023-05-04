@@ -2,12 +2,12 @@
 
 [![GitHub release](https://img.shields.io/github/release/go-fonts/dejavu.svg)](https://github.com/go-fonts/dejavu/releases)
 [![GoDoc](https://godoc.org/github.com/go-fonts/dejavu?status.svg)](https://godoc.org/github.com/go-fonts/dejavu)
-[![License](https://img.shields.io/badge/License-BSD--3-blue.svg)](https://github.com/go-fonts/dejavu/raw/master/LICENSE)
+[![License](https://img.shields.io/badge/License-BSD--3-blue.svg)](https://github.com/go-fonts/dejavu/raw/main/LICENSE)
 
 `dejavu` provides the [DejaVu](https://dejavu-fonts.github.io/) fonts as importable Go packages.
 
-The fonts are released under the [DejaVu font](https://github.com/go-fonts/dejavu/raw/master/LICENSE-DejaVu) license.
-The Go packages under the [BSD-3](https://github.com/go-fonts/dejavu/raw/master/LICENSE) license.
+The fonts are released under the [DejaVu font](https://github.com/go-fonts/dejavu/raw/main/LICENSE-DejaVu) license.
+The Go packages under the [BSD-3](https://github.com/go-fonts/dejavu/raw/main/LICENSE) license.
 
 ## Example
 
